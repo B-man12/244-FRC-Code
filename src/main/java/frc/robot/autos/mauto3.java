@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 
-public class exampleAuto extends SequentialCommandGroup {
-    public exampleAuto(Swerve s_Swerve){
+public class mauto3 extends SequentialCommandGroup {
+    public mauto3(Swerve s_Swerve){
         TrajectoryConfig config =
             new TrajectoryConfig(
                     Constants.AutoConstants.kMaxSpeedMetersPerSecond,
@@ -31,11 +31,11 @@ public class exampleAuto extends SequentialCommandGroup {
                 // Start at the origin facing the +X direction 
                 
                 
-                new Pose2d(0, 0, new Rotation2d(0)),
+                new Pose2d(8, -2.22, new Rotation2d(0)),
                 // Pass through these two interior waypoints, making an 's' curve path
-                List.of(new Translation2d(3, -2), new Translation2d(2, 3)),
+                List.of(new Translation2d(5,-1.15), new Translation2d(2.6, .792)),
                 // End 3 meters straight ahead of where we started, facing forward
-                new Pose2d(2,3, new Rotation2d(0)),
+                new Pose2d(.2,.2, new Rotation2d(0)),
                 config);
 
         var thetaController =

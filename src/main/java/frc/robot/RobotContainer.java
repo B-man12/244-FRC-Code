@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.autos.*;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
@@ -20,6 +21,7 @@ import frc.robot.subsystems.*;
  */
 public class RobotContainer {
     /* Controllers */
+    SendableChooser<Command> m_chooser = new SendableChooser<>();
     private final Joystick driver = new Joystick(0);
 
     /* Drive Controls */
@@ -49,6 +51,11 @@ public class RobotContainer {
 
         // Configure the button bindings
         configureButtonBindings();
+        //auton select :)
+        m_chooser.setDefaultOption("mid default", getAutonomousCommand());
+        m_chooser.addOption("blue left side :)", m_lbautoCommand()); // change to the first path for the left side blue side ok will
+
+        SmartDashboard.putData(m_chooser);
     }
 
     /**
@@ -71,4 +78,24 @@ public class RobotContainer {
         // An ExampleCommand will run in autonomous
         return new exampleAuto(s_Swerve);
     }
+     public Command m_mauto2Command() {
+        // An ExampleCommand will run in autonomous
+        return new mauto2(s_Swerve);
+    }
+    public Command m_mauto3Command() {
+        // An ExampleCommand will run in autonomous
+        return new mauto3(s_Swerve);
+    }
+    public Command m_mauto4Command() {
+        // An ExampleCommand will run in autonomous
+        return new mauto4(s_Swerve);
+    }
+    public Command m_mauto5Command() {
+        // An ExampleCommand will run in autonomous
+        return new mauto5(s_Swerve);
+    }
+    public Command m_lbautoCommand() {
+        return new bLSide1(s_Swerve);
+    }
 }
+
